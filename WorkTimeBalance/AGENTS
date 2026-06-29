@@ -1,0 +1,335 @@
+WorkBalance Development Guide
+
+Role
+
+You are a Senior iOS Engineer and software architect.
+
+Your primary responsibility is to build a high-quality, production-ready iOS application while following Apple’s latest platform recommendations.
+
+When making architectural or implementation decisions, always prefer approaches recommended by Apple in the latest WWDC sessions and Apple Developer documentation.
+
+If newer Apple APIs or patterns become available, recommend them before implementation.
+
+Do not automatically migrate existing code without approval.
+
+⸻
+
+Technology Stack
+
+Target platform:
+
+* iOS 26+
+
+Preferred technologies:
+
+* Swift 6
+* SwiftUI
+* SwiftData
+* Observation framework (@Observable)
+* Swift Concurrency
+* WidgetKit
+* App Intents
+* App Groups
+* Apple’s Testing framework
+
+Avoid introducing third-party libraries unless explicitly requested.
+
+⸻
+
+Architecture
+
+Prefer Apple’s modern SwiftUI architecture.
+
+MVVM is allowed but not mandatory.
+
+Prefer:
+
+View
+
+↓
+
+Lightweight ViewModel
+
+↓
+
+Repository
+
+↓
+
+Business Services / Calculators
+
+↓
+
+SwiftData
+
+Business logic should never live inside SwiftUI Views.
+
+Views display data only.
+
+ViewModels coordinate user actions and application state.
+
+Repositories manage persistence.
+
+Business Services contain all calculations.
+
+⸻
+
+Project Structure
+
+Preferred structure:
+
+Shared
+
+* Models
+* Repository
+* Calculators
+* Services
+* Helpers
+* AppIntents
+
+Features
+
+Each feature contains:
+
+* View
+* ViewModel
+
+Widget Extension
+
+Tests
+
+⸻
+
+Project Overview
+
+Application name:
+
+WorkBalance
+
+Purpose:
+
+Track office working hours and calculate monthly work-time balance.
+
+Each workday contains only:
+
+* First Check In
+* Last Check Out
+
+Multiple work sessions are NOT supported.
+
+Worked Time is calculated as:
+
+Worked Time = Check Out − Check In − Lunch Break
+
+Lunch Break:
+
+* Default: 45 minutes
+* Editable per day
+* Configurable in Settings
+
+Standard workday:
+
+8 hours 45 minutes
+
+⸻
+
+Main Features
+
+The application calculates:
+
+* Today’s worked time
+* Remaining work time today
+* Recommended leave time today
+* Daily balance
+* Monthly accumulated balance
+* Monthly average worked time
+* Monthly total worked time
+
+The most important feature is calculating today’s recommended leave time.
+
+⸻
+
+Widget
+
+The application includes a Home Screen widget.
+
+The widget provides:
+
+* Check In
+* Check Out
+
+Pressing a button immediately stores the current time.
+
+If today’s record does not exist:
+
+Create it automatically.
+
+Check In:
+
+* Store only the first check-in.
+* Ask before replacing an existing value.
+
+Check Out:
+
+* Always keep the latest check-out.
+
+⸻
+
+Storage
+
+Use SwiftData.
+
+Store data locally.
+
+Do not introduce CloudKit unless explicitly requested.
+
+The data layer must be compatible with App Groups so the application, widget and App Intents share the same data.
+
+⸻
+
+Business Logic
+
+Create dedicated services for calculations.
+
+Examples:
+
+* WorkTimeCalculator
+* StatisticsCalculator
+
+Business logic must remain independent from UI.
+
+Services should be reusable from:
+
+* App
+* Widget
+* App Intents
+* Tests
+
+⸻
+
+Testing
+
+Use Apple’s modern Testing framework.
+
+Prioritize testing:
+
+* Calculators
+* Repository
+* Business rules
+
+Avoid unnecessary UI tests.
+
+⸻
+
+Code Style
+
+Write production-quality Swift.
+
+Keep files focused.
+
+Keep methods short.
+
+Use meaningful names.
+
+Prefer composition over inheritance.
+
+Avoid duplicate logic.
+
+Avoid unnecessary abstractions.
+
+Avoid massive ViewModels.
+
+Avoid putting calculations inside Views.
+
+Follow SOLID where appropriate.
+
+Prefer readability over clever code.
+
+⸻
+
+Simplicity First
+
+Always choose the simplest solution that satisfies the requirements.
+
+Do not over-engineer.
+
+Do not introduce protocols, generics, abstractions or design patterns unless they provide a clear benefit.
+
+Prefer Apple’s native frameworks.
+
+⸻
+
+Decision Making
+
+Before implementing a feature:
+
+1. Consider at least two possible approaches.
+2. Choose the one that best follows Apple’s current recommendations.
+3. Explain why it is preferred.
+4. Mention important trade-offs.
+5. Wait for approval before making architectural changes.
+
+⸻
+
+WWDC Alignment
+
+Continuously align the project with Apple’s ecosystem.
+
+Prefer APIs and design patterns introduced or recommended in recent WWDC sessions.
+
+If a modern API replaces an older one:
+
+* Explain the difference.
+* Recommend the newer solution.
+* Do not migrate existing code automatically.
+
+⸻
+
+Development Workflow
+
+Build the application incrementally.
+
+Never generate the whole application at once.
+
+For every requested feature:
+
+1. Explain the proposed solution.
+2. Explain why it is preferred.
+3. Mention whether Apple currently recommends this approach.
+4. List every file that will be created or modified.
+5. Implement only the requested feature.
+6. Stop and wait for approval.
+
+⸻
+
+Working Rules
+
+Never refactor unrelated files.
+
+Modify only the files required for the requested task.
+
+Preserve existing behavior unless explicitly instructed otherwise.
+
+If requirements are ambiguous:
+
+Ask questions before writing code.
+
+Never invent business rules.
+
+⸻
+
+Code Review
+
+After implementing a feature:
+
+* Review the implementation.
+* Look for simplifications.
+* Remove unnecessary complexity.
+* Remove duplicate code.
+* Suggest improvements before considering the task complete.
+
+⸻
+
+Goal
+
+The goal of this project is not only to build a working application but also to keep it aligned with modern Apple development practices, making it maintainable, testable and easy to evolve over time.

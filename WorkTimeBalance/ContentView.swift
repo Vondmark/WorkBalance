@@ -1,80 +1,70 @@
-//
-//  ContentView.swift
-//  WorkTimeBalance
-//
-//  Created by Mark on 28.06.2026.
-//
-
-import SwiftUI
 import SwiftData
+import SwiftUI
 
-struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
-    var body: some View {
-        NavigationViewWrapper {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-#if os(macOS)
-            .navigationSplitViewColumnWidth(min: 180, ideal: 200)
-#endif
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
-    }
+private enum WorkBalanceTab: Hashable {
+    case today
+    case history
+    case settings
 }
 
-fileprivate struct NavigationViewWrapper<Content: View>: View {
-    let content: () -> Content
+struct ContentView: View {
+    @AppStorage(
+        AppSettingsStore.appLanguageKey,
+        store: AppSettingsStore.sharedUserDefaults
+    ) private var appLanguageRawValue = AppLanguage.system.rawValue
+
+    @State private var selectedTab = WorkBalanceTab.today
+    @State private var editTodayRequestID: UUID?
 
     var body: some View {
-#if os(macOS)
-        NavigationSplitView {
-            content()
-        } detail: {
-            Text("Select an item")
+        TabView(selection: $selectedTab) {
+            TodayView(editRequestID: editTodayRequestID)
+                .tabItem {
+                    Label {
+                        Text(TodayLocalization.Today.title)
+                    } icon: {
+                        Image(systemName: "clock")
+                    }
+                }
+                .tag(WorkBalanceTab.today)
+
+            HistoryView()
+                .tabItem {
+                    Label {
+                        Text(TodayLocalization.History.title)
+                    } icon: {
+                        Image(systemName: "calendar")
+                    }
+                }
+                .tag(WorkBalanceTab.history)
+
+            SettingsView()
+                .tabItem {
+                    Label {
+                        Text(TodayLocalization.Settings.title)
+                    } icon: {
+                        Image(systemName: "gearshape")
+                    }
+                }
+                .tag(WorkBalanceTab.settings)
         }
-#else
-        content()
-#endif
+        .environment(\.locale, appLanguage.locale ?? .current)
+        .onOpenURL { url in
+            guard url.scheme == "worktimebalance", url.host == "today", url.path == "/edit" else {
+                return
+            }
+
+            selectedTab = .today
+            editTodayRequestID = UUID()
+        }
+    }
+
+    private var appLanguage: AppLanguage {
+        AppLanguage(rawValue: appLanguageRawValue) ?? .system
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: WorkDay.self, inMemory: true)
 }

@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4DC75A5F2FF2B814004FCD35 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC75A5E2FF2B814004FCD35 /* WidgetKit.framework */; };
+		4DC75A612FF2B814004FCD35 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC75A602FF2B814004FCD35 /* SwiftUI.framework */; };
+		4DC75A6E2FF2B816004FCD35 /* WorkTimeBalanceWidgetExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4DC75A5C2FF2B814004FCD35 /* WorkTimeBalanceWidgetExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		4D3E4E6D2FF134E400971DB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,17 +27,74 @@
 			remoteGlobalIDString = 4D3E4E5C2FF134E200971DB5;
 			remoteInfo = WorkTimeBalance;
 		};
+		4DC75A6C2FF2B816004FCD35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D3E4E552FF134E200971DB5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DC75A5B2FF2B814004FCD35;
+			remoteInfo = WorkTimeBalanceWidgetExtensionExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4DC75A6F2FF2B816004FCD35 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4DC75A6E2FF2B816004FCD35 /* WorkTimeBalanceWidgetExtensionExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4D3E4E5D2FF134E200971DB5 /* WorkTimeBalance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkTimeBalance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3E4E6C2FF134E400971DB5 /* WorkTimeBalanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkTimeBalanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3E4E762FF134E400971DB5 /* WorkTimeBalanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkTimeBalanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DC75A5C2FF2B814004FCD35 /* WorkTimeBalanceWidgetExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WorkTimeBalanceWidgetExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DC75A5E2FF2B814004FCD35 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		4DC75A602FF2B814004FCD35 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		4DC75A752FF2BA84004FCD35 /* WorkTimeBalanceWidgetExtensionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WorkTimeBalanceWidgetExtensionExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4DC75A722FF2B816004FCD35 /* Exceptions for "WorkTimeBalanceWidgetExtension" folder in "WorkTimeBalanceWidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 4DC75A5B2FF2B814004FCD35 /* WorkTimeBalanceWidgetExtensionExtension */;
+		};
+		4DC75A832FF2BDAE004FCD35 /* Exceptions for "WorkTimeBalance" folder in "WorkTimeBalanceWidgetExtensionExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Item.swift,
+				Shared/AppIntents/CheckInIntent.swift,
+				Shared/AppIntents/CheckOutIntent.swift,
+				Shared/Calculators/StatisticsCalculator.swift,
+				Shared/Calculators/WorkTimeCalculator.swift,
+				Shared/Helpers/WorkBalanceAppGroup.swift,
+				Shared/Helpers/WorkBalanceDefaults.swift,
+				Shared/Helpers/WorkBalanceWidgetKind.swift,
+				Shared/Models/WorkDay.swift,
+				Shared/Repository/WorkDayRepository.swift,
+				Shared/Services/AppSettingsStore.swift,
+				Shared/Services/WorkBalanceModelContainerFactory.swift,
+				Shared/Services/WorkDayService.swift,
+			);
+			target = 4DC75A5B2FF2B814004FCD35 /* WorkTimeBalanceWidgetExtensionExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4D3E4E5F2FF134E200971DB5 /* WorkTimeBalance */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4DC75A832FF2BDAE004FCD35 /* Exceptions for "WorkTimeBalance" folder in "WorkTimeBalanceWidgetExtensionExtension" target */,
+			);
 			path = WorkTimeBalance;
 			sourceTree = "<group>";
 		};
@@ -43,6 +106,14 @@
 		4D3E4E792FF134E400971DB5 /* WorkTimeBalanceUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = WorkTimeBalanceUITests;
+			sourceTree = "<group>";
+		};
+		4DC75A622FF2B814004FCD35 /* WorkTimeBalanceWidgetExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4DC75A722FF2B816004FCD35 /* Exceptions for "WorkTimeBalanceWidgetExtension" folder in "WorkTimeBalanceWidgetExtensionExtension" target */,
+			);
+			path = WorkTimeBalanceWidgetExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -69,15 +140,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4DC75A592FF2B814004FCD35 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DC75A612FF2B814004FCD35 /* SwiftUI.framework in Frameworks */,
+				4DC75A5F2FF2B814004FCD35 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		4D3E4E542FF134E200971DB5 = {
 			isa = PBXGroup;
 			children = (
+				4DC75A752FF2BA84004FCD35 /* WorkTimeBalanceWidgetExtensionExtension.entitlements */,
 				4D3E4E5F2FF134E200971DB5 /* WorkTimeBalance */,
 				4D3E4E6F2FF134E400971DB5 /* WorkTimeBalanceTests */,
 				4D3E4E792FF134E400971DB5 /* WorkTimeBalanceUITests */,
+				4DC75A622FF2B814004FCD35 /* WorkTimeBalanceWidgetExtension */,
+				4DC75A5D2FF2B814004FCD35 /* Frameworks */,
 				4D3E4E5E2FF134E200971DB5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,8 +171,18 @@
 				4D3E4E5D2FF134E200971DB5 /* WorkTimeBalance.app */,
 				4D3E4E6C2FF134E400971DB5 /* WorkTimeBalanceTests.xctest */,
 				4D3E4E762FF134E400971DB5 /* WorkTimeBalanceUITests.xctest */,
+				4DC75A5C2FF2B814004FCD35 /* WorkTimeBalanceWidgetExtensionExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4DC75A5D2FF2B814004FCD35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DC75A5E2FF2B814004FCD35 /* WidgetKit.framework */,
+				4DC75A602FF2B814004FCD35 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,10 +195,12 @@
 				4D3E4E592FF134E200971DB5 /* Sources */,
 				4D3E4E5A2FF134E200971DB5 /* Frameworks */,
 				4D3E4E5B2FF134E200971DB5 /* Resources */,
+				4DC75A6F2FF2B816004FCD35 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4DC75A6D2FF2B816004FCD35 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				4D3E4E5F2FF134E200971DB5 /* WorkTimeBalance */,
@@ -163,6 +258,28 @@
 			productReference = 4D3E4E762FF134E400971DB5 /* WorkTimeBalanceUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		4DC75A5B2FF2B814004FCD35 /* WorkTimeBalanceWidgetExtensionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DC75A732FF2B816004FCD35 /* Build configuration list for PBXNativeTarget "WorkTimeBalanceWidgetExtensionExtension" */;
+			buildPhases = (
+				4DC75A582FF2B814004FCD35 /* Sources */,
+				4DC75A592FF2B814004FCD35 /* Frameworks */,
+				4DC75A5A2FF2B814004FCD35 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4DC75A622FF2B814004FCD35 /* WorkTimeBalanceWidgetExtension */,
+			);
+			name = WorkTimeBalanceWidgetExtensionExtension;
+			packageProductDependencies = (
+			);
+			productName = WorkTimeBalanceWidgetExtensionExtension;
+			productReference = 4DC75A5C2FF2B814004FCD35 /* WorkTimeBalanceWidgetExtensionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,6 +301,9 @@
 						CreatedOnToolsVersion = 26.5;
 						TestTargetID = 4D3E4E5C2FF134E200971DB5;
 					};
+					4DC75A5B2FF2B814004FCD35 = {
+						CreatedOnToolsVersion = 26.5;
+					};
 				};
 			};
 			buildConfigurationList = 4D3E4E582FF134E200971DB5 /* Build configuration list for PBXProject "WorkTimeBalance" */;
@@ -201,6 +321,7 @@
 			projectRoot = "";
 			targets = (
 				4D3E4E5C2FF134E200971DB5 /* WorkTimeBalance */,
+				4DC75A5B2FF2B814004FCD35 /* WorkTimeBalanceWidgetExtensionExtension */,
 				4D3E4E6B2FF134E400971DB5 /* WorkTimeBalanceTests */,
 				4D3E4E752FF134E400971DB5 /* WorkTimeBalanceUITests */,
 			);
@@ -223,6 +344,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4D3E4E742FF134E400971DB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4DC75A5A2FF2B814004FCD35 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +381,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4DC75A582FF2B814004FCD35 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -265,6 +400,11 @@
 			isa = PBXTargetDependency;
 			target = 4D3E4E5C2FF134E200971DB5 /* WorkTimeBalance */;
 			targetProxy = 4D3E4E772FF134E400971DB5 /* PBXContainerItemProxy */;
+		};
+		4DC75A6D2FF2B816004FCD35 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DC75A5B2FF2B814004FCD35 /* WorkTimeBalanceWidgetExtensionExtension */;
+			targetProxy = 4DC75A6C2FF2B816004FCD35 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -390,6 +530,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WorkTimeBalance/WorkTimeBalance.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PJ622VWA6H;
@@ -434,6 +575,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WorkTimeBalance/WorkTimeBalance.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PJ622VWA6H;
@@ -575,6 +717,85 @@
 			};
 			name = Release;
 		};
+		4DC75A702FF2B816004FCD35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WorkTimeBalanceWidgetExtensionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PJ622VWA6H;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WorkTimeBalanceWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WorkTimeBalanceWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vondrakmark.WorkTimeBalance.WorkTimeBalanceWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = xros;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx watchos watchsimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,4,7";
+				XROS_DEPLOYMENT_TARGET = 26.5;
+			};
+			name = Debug;
+		};
+		4DC75A712FF2B816004FCD35 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WorkTimeBalanceWidgetExtensionExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PJ622VWA6H;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WorkTimeBalanceWidgetExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WorkTimeBalanceWidgetExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = vondrakmark.WorkTimeBalance.WorkTimeBalanceWidgetExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = xros;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx watchos watchsimulator xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,4,7";
+				VALIDATE_PRODUCT = YES;
+				XROS_DEPLOYMENT_TARGET = 26.5;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -610,6 +831,15 @@
 			buildConfigurations = (
 				4D3E4E872FF134E400971DB5 /* Debug */,
 				4D3E4E882FF134E400971DB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DC75A732FF2B816004FCD35 /* Build configuration list for PBXNativeTarget "WorkTimeBalanceWidgetExtensionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DC75A702FF2B816004FCD35 /* Debug */,
+				4DC75A712FF2B816004FCD35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

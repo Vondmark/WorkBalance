@@ -84,6 +84,7 @@
 				Shared/Services/AppSettingsStore.swift,
 				Shared/Services/WorkBalanceModelContainerFactory.swift,
 				Shared/Services/WorkDayService.swift,
+				WorkTimeBalance_Icon.icon,
 			);
 			target = 4DC75A5B2FF2B814004FCD35 /* WorkTimeBalanceWidgetExtensionExtension */;
 		};
@@ -528,8 +529,9 @@
 		4D3E4E812FF134E400971DB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WorkTimeBalance_Icon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = WorkTimeBalance/WorkTimeBalance.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -573,8 +575,9 @@
 		4D3E4E822FF134E400971DB5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WorkTimeBalance_Icon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = WorkTimeBalance/WorkTimeBalance.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
